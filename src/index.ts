@@ -7,9 +7,11 @@ import cors from "cors";
 import helmet from "helmet";
 import {router} from "./routes/postcode.router";
 
+const {port} = require("./config/config")
+
 dotenv.config();
 
-if (!process.env.PORT) {
+if (!port) {
     process.exit(1);
 }
 
@@ -17,7 +19,7 @@ if (!process.env.PORT) {
  * App Variables
  */
 
-const PORT: number = parseInt(process.env.PORT as string, 10);
+const PORT: number = parseInt(port as string, 10);
 
 const app = express();
 

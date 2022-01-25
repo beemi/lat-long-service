@@ -1,6 +1,8 @@
 import express, {Request, Response} from "express";
 import axios from "axios";
 
+const {endpoint} = require("../config/config");
+
 /**
  * Router Definition
  */
@@ -15,7 +17,7 @@ router.get("/", async (req: Request, res: Response) => {
   if (!postcode) {
     res.status(400).send("Postcode is required");
   }
-  const url = `https://api.postcodes.io/postcodes/${postcode}`;
+  const url = `${endpoint}/postcodes/${postcode}`;
   const response = await axios.get(url);
   if (response.status !== 200) {
     res.status(400).send("Postcode is invalid");
@@ -34,7 +36,7 @@ router.get("/postcode/:postcode", async (req: Request, res: Response) => {
   if (!postcode) {
     res.status(400).send("Postcode is required");
   }
-  const url = `https://api.postcodes.io/postcodes/${postcode}`;
+  const url = `${endpoint}/postcodes/${postcode}`;
   const response = await axios.get(url);
   if (response.status !== 200) {
     res.status(400).send("Postcode is invalid");
