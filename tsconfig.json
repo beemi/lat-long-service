@@ -1,12 +1,31 @@
 {
   "compilerOptions": {
-    "forceConsistentCasingInFileNames": true,
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "outDir": "./build",
-    "rootDir": "./src",
+    "moduleResolution": "node",
     "target": "es6",
-    "skipLibCheck": true,
-    "strict": true
-  }
+    "module": "commonjs",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "strict": true,
+    "sourceMap": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "outDir": "dist/",
+    "typeRoots": [
+      "./src/lib/typings/module/*",
+      "./node_modules/@types"
+    ],
+    "rootDir": "src"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
 }

@@ -9,7 +9,7 @@ app.use(express.urlencoded({extended: false}));
 app.use("/", router);
 
 it('should return 200 OK', async () => {
-  const res = await request(app).get('/').query({
+  const res = await request(app).get('').query({
     postcode: 'RM176EY'
   })
   expect(res.statusCode).toEqual(200)
@@ -19,8 +19,9 @@ it('should return 200 OK', async () => {
 
 
 it('should return 200 OK', async () => {
-  const res = await request(app).get('/').query({
+  const res = await request(app).get('').query({
     test: 'RM176EY'
   })
+  console.log(JSON.stringify(res))
   expect(res.statusCode).toEqual(400)
 })

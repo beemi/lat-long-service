@@ -16,6 +16,7 @@ router.get('/', async (req: Request, res: Response) => {
   const postcode = req.query.postcode
   let key = req.query['postcode']
 
+  console.log(req.query)
   // key is not provided
   if (!key) return res.status(400).send('Postcode is required')
 
