@@ -5,9 +5,9 @@ import * as dotenv from 'dotenv'
 import express from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
-import {router} from './routes/postcode.router'
+import { router } from './routes/postcode.router'
 
-const {port} = require('./config/config')
+const { port } = require('./config/config')
 
 dotenv.config()
 
