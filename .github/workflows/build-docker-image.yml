@@ -1,0 +1,54 @@
+name: Docker
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*.*.*' ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Create a Release
+        id: create_release
+        uses: rymndhng/release-on-push-action@master
+        with:
+          bump_version_scheme: patch
+          tag_prefix: v
+          release_body: ':rocket: :tada: PROD Release :rocket: :tada: :tada:'
+
+      - name: Check Output Parameters
+        run: |
+          echo "Got tag name ${{ steps.create_release.outputs.tag_name }}"
+          echo "Got release version ${{ steps.create_release.outputs.version }}"
+
+      - name: Login to DockerHub
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v1.12.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker
+        id: docker_build
+        uses: docker/build-push-action@v2.7.0
+        with:
+          context: .
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{steps.create_release.outputs.version}}
+          secrets: |
+            username: ${{ github.actor }}
+            GIT_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
+
+
