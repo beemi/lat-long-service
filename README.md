@@ -39,7 +39,7 @@ docker images
 
 ### Run the image
 ```shell
-docker run -p 7000:7000 lat-long-service
+docker run -p 3000:3000 lat-long-service
 ```
 
 ## :e-mail: Contacts
