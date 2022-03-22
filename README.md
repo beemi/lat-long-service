@@ -42,6 +42,29 @@ docker images
 docker run -p 3000:3000 lat-long-service
 ```
 
+## Kubernetes
+
+```shell
+minikube status
+```
+
+```shell
+minikube dashboard
+```
+
+```shell
+kubectl apply -f kube
+```
+watch your Pods coming alive with:
+```shell
+kubectl get pods --watch
+```
+
+Delete kubernetes resources with:
+```shell
+kubectl delete -f kube
+```
+
 ## :e-mail: Contacts
 
 Owner: [beemiraja@gmail.com](beemiraja@gmail.com)
