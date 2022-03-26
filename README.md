@@ -44,13 +44,26 @@ docker run -p 3000:3000 lat-long-service
 
 ## Kubernetes
 
-```shell
-minikube status
-```
+Kubernetes CLI To Manage Your Clusters In Style!
+
+https://k9scli.io/
 
 ```shell
-minikube dashboard
+brew install k9s
 ```
+```shell
+k9s
+```
+
+
+### Minikube
+Start minikube with `minikube start`
+
+Check the status of minikube with `minikube status`
+
+Check the logs of minikube with `minikube logs`
+
+Check the dashboard of minikube with `minikube dashboard`
 
 ```shell
 kubectl apply -f kube
