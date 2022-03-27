@@ -22,13 +22,6 @@ spec:
             - name: API_ENDPOINT
               value: https://api.postcodes.io
           imagePullPolicy: Always
-          resources:
-            requests:
-              memory: "64Mi"
-              cpu: "250m"
-            limits:
-              memory: "128Mi"
-              cpu: "500m"
 ---
 # ... Service YAML definition
 apiVersion: v1
