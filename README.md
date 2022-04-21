@@ -17,7 +17,7 @@ curl -X GET http://localhost:7000?postcode=SW1A 1AA
 ```
 
 ```shell
-cur -X GET http://localhost:3000/postcode/SW1A 1AA
+curl -X GET http://localhost:3000/postcode/SW1A 1AA
 ```
 
 # tests
@@ -52,12 +52,15 @@ https://k9scli.io/
 brew install k9s
 ```
 ```shell
-k9s
+k9s -n default
 ```
+![Alt text](docs/img_4.png)
 
 
 ### Minikube
 Start minikube with `minikube start`
+
+![Alt text](docs/img_3.png)
 
 Check the status of minikube with `minikube status`
 
@@ -71,6 +74,11 @@ kubectl apply -f kube
 watch your Pods coming alive with:
 ```shell
 kubectl get pods --watch
+```
+
+Get pods from the cluster with:
+```shell
+kubectl get pods
 ```
 
 Delete kubernetes resources with:

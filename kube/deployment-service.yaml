@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: ghcr.io/beemi/lat-long-service:main
+          image: rbeemi/jaitechltd-latlong-service:main-a0e0c82a-1650574148
           ports:
             - containerPort: 3000
           env:
