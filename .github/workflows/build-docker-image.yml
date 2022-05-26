@@ -31,7 +31,7 @@ jobs:
           echo "Got release version ${{ steps.create_release.outputs.version }}"
 
       - name: Login to DockerHub
-        uses: docker/login-action@v1.14.1
+        uses: docker/login-action@v2.0.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
